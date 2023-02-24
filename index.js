@@ -1,13 +1,29 @@
-function isPalindrome(word) {
-  // Write your algorithm here
+function reverseString(word) {
+  
+  return word.split('').reverse().join('');
 }
+
+function isPalindrome(word) {
+ 
+  const reversedWord = reverseString(word);
+  
+  return word === reversedWord;
+}
+
 
 /* 
   Add your pseudocode here
+  reverse the input string
+
+  if the reversed string is the same as the input
+    return true
+  else
+    return false
 */
 
 /*
   Add written explanation of your solution here
+  I need to make an isPalindrome function that returns either true or false. When the input string is the same forwards and backwards, I should return true. That means that if the input string is the same after I reverse it, I should return true. For instance, "mom" in reverse is also "mom", and "racecar" in reverse is also "racecar", so my solution should return true for these cases. "hi" in reverse is "ih", so my solution should return false for this case.
 */
 
 // You can run `node index.js` to view these console logs
@@ -20,6 +36,31 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", isPalindrome("robot"));
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("a"));
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome(""));
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("abba"));
+
+  console.log("Expecting: false");
+  console.log("=>", isPalindrome("strings"));
+
+  console.log("Expecting: ih");
+  console.log("=>", reverseString("hi"));
+
+  console.log("");
+
+  console.log("Expecting: tobor");
+  console.log("=>", reverseString("robot"));
+
+  console.log("");
+
+  console.log("Expecting: mom");
+  console.log("=>", reverseString("mom"));
 }
 
 module.exports = isPalindrome;
